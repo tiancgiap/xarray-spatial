@@ -54,7 +54,6 @@ In the GIS world, rasters are used for representing continuous phenomena (e.g. e
 - [Bump Mapping](xrspatial/bump.py)
 - [Perlin Noise](xrspatial/perlin.py)
 - [Procedural Terrain Generation](xrspatial/terrain.py)
-
 #### Usage
 
 ##### Basic Pattern
@@ -94,3 +93,4 @@ With the introduction of projects like Numba, Python gained new ways to provide 
 - @brendancol
 - @thuydotm
 - @jbednar
+- @Kristine
