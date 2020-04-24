@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Proximity &mdash; Xarray_spatial  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="./assets/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="./assets/documentation_options.js"></script>
+        <script src="./assets/jquery.js"></script>
+        <script src="./assets/underscore.js"></script>
+        <script src="./assets/doctools.js"></script>
+        <script src="./assets/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="./assets/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="./assets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./assets/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="./assets/./css/xarray_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bump Mapping" href="bump.html" />
+    <link rel="prev" title="Viewshed" href="viewshed.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="./assets/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="slope.html">Slope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aspect.html">Aspect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="curvature.html">Curvature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hillshade.html">Hillshade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normalized.html">Normalized Difference Vegetation Index (NDVI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="focal.html">Focal Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zonal_statistics.html">Zonal Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zonal_cross.html">Zonal Cross Tabulate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewshed.html">Viewshed</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Proximity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bump.html">Bump Mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perlin.html">Perlin Noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="procedural.html">Procedural Terrain Generation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Xarray_spatial</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Proximity</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="./assets/sources/proximity.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="proximity">
+<span id="id1"></span><h1>Proximity<a class="headerlink" href="#proximity" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-xrspatial.proximity"></span><dl class="py function">
+<dt id="xrspatial.proximity.euclidean_distance">
+<code class="sig-prename descclassname">xrspatial.proximity.</code><code class="sig-name descname">euclidean_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x1</span></em>, <em class="sig-param"><span class="n">x2</span></em>, <em class="sig-param"><span class="n">y1</span></em>, <em class="sig-param"><span class="n">y2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xrspatial/proximity.html#euclidean_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xrspatial.proximity.euclidean_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate Euclidean distance between (x1, y1) and (x2, y2).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x1</strong> (<em>float</em>) – x-coordinate of the first point.</p></li>
+<li><p><strong>x2</strong> (<em>float</em>) – x-coordinate of the second point.</p></li>
+<li><p><strong>y1</strong> (<em>float</em>) – y-coordinate of the first point.</p></li>
+<li><p><strong>y2</strong> (<em>float</em>) – y-coordinate of the second point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>distance</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="xrspatial.proximity.great_circle_distance">
+<code class="sig-prename descclassname">xrspatial.proximity.</code><code class="sig-name descname">great_circle_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x1</span></em>, <em class="sig-param"><span class="n">x2</span></em>, <em class="sig-param"><span class="n">y1</span></em>, <em class="sig-param"><span class="n">y2</span></em>, <em class="sig-param"><span class="n">radius</span><span class="o">=</span><span class="default_value">6378137</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xrspatial/proximity.html#great_circle_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xrspatial.proximity.great_circle_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate great-circle distance between (x1, y1) and (x2, y2), assuming each point is a longitude, latitude pair.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x1</strong> (<em>float</em>) – x-coordinate (latitude) of the first point.</p></li>
+<li><p><strong>x2</strong> (<em>float</em>) – x-coordinate (latitude) of the second point.</p></li>
+<li><p><strong>y1</strong> (<em>float</em>) – y-coordinate (longitude) of the first point.</p></li>
+<li><p><strong>y2</strong> (<em>float</em>) – y-coordinate (longitude) of the second point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>distance</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="xrspatial.proximity.manhattan_distance">
+<code class="sig-prename descclassname">xrspatial.proximity.</code><code class="sig-name descname">manhattan_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x1</span></em>, <em class="sig-param"><span class="n">x2</span></em>, <em class="sig-param"><span class="n">y1</span></em>, <em class="sig-param"><span class="n">y2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xrspatial/proximity.html#manhattan_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xrspatial.proximity.manhattan_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate Manhattan distance between (x1, y1) and (x2, y2).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x1</strong> (<em>float</em>) – x-coordinate of the first point.</p></li>
+<li><p><strong>x2</strong> (<em>float</em>) – x-coordinate of the second point.</p></li>
+<li><p><strong>y1</strong> (<em>float</em>) – y-coordinate of the first point.</p></li>
+<li><p><strong>y2</strong> (<em>float</em>) – y-coordinate of the second point.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>distance</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="xrspatial.proximity.proximity">
+<code class="sig-prename descclassname">xrspatial.proximity.</code><code class="sig-name descname">proximity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">raster</span></em>, <em class="sig-param"><span class="n">target_values</span><span class="o">=</span><span class="default_value">[]</span></em>, <em class="sig-param"><span class="n">distance_metric</span><span class="o">=</span><span class="default_value">'EUCLIDEAN'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/xrspatial/proximity.html#proximity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#xrspatial.proximity.proximity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the proximity of all pixels in the image to a set of pixels in
+the source image.</p>
+<p>This function attempts to compute the proximity of all pixels in the
+image to a set of pixels in the source image. The following options are
+used to define the behavior of the function. By default all non-zero pixels
+in <code class="docutils literal notranslate"><span class="pre">raster.values</span></code> will be considered the “target”, and all proximities
+will be computed in pixels.  Note that target pixels are set to the value
+corresponding to a distance of zero.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>raster</strong> (<em>xarray.DataArray</em>) – Input raster image with shape=(height, width)</p></li>
+<li><p><strong>target_values</strong> (<em>list</em>) – Target pixel values to measure the distance from.  If this option is
+not provided, proximity will be computed from non-zero pixel values.
+Currently pixel values are internally processed as integers.</p></li>
+<li><p><strong>distance_metric</strong> (<em>string</em>) – The metric for calculating distance between 2 points.
+Valid distance_metrics include: ‘EUCLIDEAN’, ‘GREAT_CIRCLE’, and ‘MANHATTAN’
+Default is ‘EUCLIDEAN’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>proximity</strong> – Proximity image with shape=(height, width)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>xarray.DataArray</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">raster</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">temp_raster</span> <span class="o">=</span> <span class="n">xarray</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">raster</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xrspatial</span><span class="o">.</span><span class="n">proximity</span><span class="p">(</span><span class="n">temp_raster</span><span class="p">)</span>
+<span class="go">Out[]:</span>
+<span class="go">   &lt;xarray.DataArray (y: 2, x: 4)&gt;</span>
+<span class="go">   array([[0., 0., 1., 0.],[1., 0., 0., 0.]])</span>
+<span class="go">Dimensions without coordinates: y, x    1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bump.html" class="btn btn-neutral float-right" title="Bump Mapping" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="viewshed.html" class="btn btn-neutral float-left" title="Viewshed" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Brendan Collins
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

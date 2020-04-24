@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Xarray-spatial: Raster-Based Spatial Analysis in Python &mdash; Xarray_spatial  documentation</title>
+
+
+  
+  <script type="text/javascript" src="./assets/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="./assets/documentation_options.js"></script>
+        <script src="./assets/jquery.js"></script>
+        <script src="./assets/underscore.js"></script>
+        <script src="./assets/doctools.js"></script>
+        <script src="./assets/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="./assets/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="./assets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./assets/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="./assets/css/xarray_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Slope" href="slope.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#">
+          
+
+          
+            
+            <img src="./assets/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="slope.html">Slope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aspect.html">Aspect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="curvature.html">Curvature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hillshade.html">Hillshade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normalized.html">Normalized Difference Vegetation Index (NDVI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="focal.html">Focal Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zonal_statistics.html">Zonal Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zonal_cross.html">Zonal Cross Tabulate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewshed.html">Viewshed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proximity.html">Proximity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bump.html">Bump Mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perlin.html">Perlin Noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="procedural.html">Procedural Terrain Generation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Xarray_spatial</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Xarray-spatial: Raster-Based Spatial Analysis in Python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="./assets/sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="xarray-spatial-raster-based-spatial-analysis-in-python">
+<h1>Xarray-spatial: Raster-Based Spatial Analysis in Python<a class="headerlink" href="#xarray-spatial-raster-based-spatial-analysis-in-python" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://travis-ci.org/makepath/xarray-spatial"><img alt="Build Status" src="https://travis-ci.org/makepath/xarray-spatial.svg?branch=master" /></a>
+<a class="reference external image-reference" href="https://badge.fury.io/py/xarray-spatial"><img alt="PyPI version" src="https://badge.fury.io/py/xarray-spatial.svg" /></a>
+<hr class="docutils" />
+<a class="reference external image-reference" href="composite_map.gif"><img alt="title" src="./assets/images/composite_map.gif" /></a>
+<hr class="docutils" />
+<blockquote>
+<div><ul class="simple">
+<li><p>Fast, Accurate Python library for Raster Operations</p></li>
+<li><p>Extensible with <a class="reference external" href="http://numba.pydata.org/">Numba</a></p></li>
+<li><p>Scalable with <a class="reference external" href="http://dask.pydata.org">Dask</a></p></li>
+<li><p>Free of GDAL / GEOS Dependencies</p></li>
+<li><p>General-Purpose Spatial Processing, Geared Towards GIS Professionals</p></li>
+</ul>
+</div></blockquote>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">xarray-spatial</span></code> implements common raster analysis functions using Numba and provides an easy-to-install, easy-to-extend codebase for raster analysis.</p>
+<p><code class="docutils literal notranslate"><span class="pre">xarray-spatial</span></code> grew out of the <a class="reference external" href="https://datashader.org/">Datashader project</a>, which provides fast rasterization of vector data (points, lines, polygons, meshes, and rasters) for use with xarray-spatial.</p>
+<p><code class="docutils literal notranslate"><span class="pre">xarray-spatial</span></code> does not depend on GDAL / GEOS, which makes it fully extensible in Python but does limit the breadth of operations that can be covered.  xarray-spatial is meant to include the core raster-analysis functions needed for GIS developers / analysts, implemented independently of the non-Python geo stack.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># via conda</span>
+conda install -c makepath xarray-spatial
+
+<span class="c1"># via pip</span>
+pip install xarray-spatial
+</pre></div>
+</div>
+</div>
+<div class="section" id="raster-huh">
+<h2>Raster-huh?<a class="headerlink" href="#raster-huh" title="Permalink to this headline">¶</a></h2>
+<p>Rasters are regularly gridded datasets like GeoTIFFs, JPGs, and PNGs.</p>
+<p>In the GIS world, rasters are used for representing continuous phenomena (e.g. elevation, rainfall, distance), either directly as numerical values, or as RGB images created for humans to view. Rasters typically have two spatial dimensions, but may have any number of other dimensions (time, type of measurement, etc.)</p>
+</div>
+<div class="section" id="supported-spatial-functions">
+<h2>Supported Spatial Functions:<a class="headerlink" href="#supported-spatial-functions" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="slope.html">Slope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aspect.html">Aspect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="curvature.html">Curvature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hillshade.html">Hillshade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normalized.html">Normalized Difference Vegetation Index (NDVI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="focal.html">Focal Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zonal_statistics.html">Zonal Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zonal_cross.html">Zonal Cross Tabulate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewshed.html">Viewshed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proximity.html">Proximity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bump.html">Bump Mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perlin.html">Perlin Noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="procedural.html">Procedural Terrain Generation</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basic-pattern">
+<h3>Basic Pattern<a class="headerlink" href="#basic-pattern" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span> <span class="nn">xrspatial</span> <span class="kn">import</span> <span class="n">hillshade</span>
+
+<span class="n">my_dataarray</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">hillshaded_dataarray</span> <span class="o">=</span> <span class="n">hillshade</span><span class="p">(</span><span class="n">my_dataarray</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Check out the user guide <a class="reference external" href="./assets/examples/user-guide.html">here</a>.</p>
+<hr class="docutils" />
+<a class="reference external image-reference" href="composite_map.png"><img alt="title" src="./assets/images/composite_map.png" /></a>
+</div>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">xarray-spatial</span></code> currently depends on Datashader, but will soon be updated to depend only on <code class="docutils literal notranslate"><span class="pre">xarray</span></code> and <code class="docutils literal notranslate"><span class="pre">numba</span></code>, while still being able to make use of Datashader output when available.</p>
+<a class="reference external image-reference" href="dependencies.svg"><img alt="title" src="./assets/images/dependencies.svg" /></a>
+</div>
+<div class="section" id="notes-on-gdal">
+<h2>Notes on GDAL<a class="headerlink" href="#notes-on-gdal" title="Permalink to this headline">¶</a></h2>
+<p>Within the Python ecosystem, many geospatial libraries interface with the GDAL C++ library for raster and vector input, output, and analysis (e.g. rasterio, rasterstats, geopandas). GDAL is robust, performant, and has decades of great work behind it. For years, off-loading expensive computations to the C/C++ level in this way has been a key performance strategy for Python libraries (obviously…Python itself is implemented in C!).</p>
+<p>However, wrapping GDAL has a few drawbacks for Python developers and data scientists:</p>
+<ul class="simple">
+<li><p>GDAL can be a pain to build / install.</p></li>
+<li><p>GDAL is hard for Python developers/analysts to extend, because it requires understanding multiple languages.</p></li>
+<li><p>GDAL’s data structures are defined at the C/C++ level, which constrains how they can be accessed from Python.</p></li>
+</ul>
+<p>With the introduction of projects like Numba, Python gained new ways to provide high-performance code directly in Python, without depending on or being constrained by separate C/C++ extensions. <code class="docutils literal notranslate"><span class="pre">xarray-spatial</span></code> implements algorithms using Numba and Dask, making all of its source code available as pure Python without any “black box” barriers that obscure what is going on and prevent full optimization. Projects can make use of the functionality provided by <code class="docutils literal notranslate"><span class="pre">xarray-spatial</span></code> where available, while still using GDAL where required for other tasks.</p>
+</div>
+<div class="section" id="contributors">
+<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>&#64;brendancol</p></li>
+<li><p>&#64;thuydotm</p></li>
+<li><p>&#64;jbednar</p></li>
+<li><p>&#64;kristinepetrosyan</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="slope.html" class="btn btn-neutral float-right" title="Slope" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Brendan Collins
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

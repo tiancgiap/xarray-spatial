@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Zonal Cross Tabulate &mdash; Xarray_spatial  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="./assets/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="./assets/documentation_options.js"></script>
+        <script src="./assets/jquery.js"></script>
+        <script src="./assets/underscore.js"></script>
+        <script src="./assets/doctools.js"></script>
+        <script src="./assets/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="./assets/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="./assets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./assets/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="./assets/./css/xarray_theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Viewshed" href="viewshed.html" />
+    <link rel="prev" title="Zonal Statistics" href="zonal_statistics.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="./assets/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="slope.html">Slope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aspect.html">Aspect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="curvature.html">Curvature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hillshade.html">Hillshade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normalized.html">Normalized Difference Vegetation Index (NDVI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="focal.html">Focal Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zonal_statistics.html">Zonal Statistics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Zonal Cross Tabulate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewshed.html">Viewshed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proximity.html">Proximity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bump.html">Bump Mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="perlin.html">Perlin Noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="procedural.html">Procedural Terrain Generation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Xarray_spatial</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Zonal Cross Tabulate</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="./assets/sources/zonal_cross.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="zonal-cross-tabulate">
+<span id="zonal-cross"></span><h1>Zonal Cross Tabulate<a class="headerlink" href="#zonal-cross-tabulate" title="Permalink to this headline">¶</a></h1>
+<dl class="py method">
+<dt id="xrspatial.zonal.crosstab">
+<code class="sig-prename descclassname">zonal.</code><code class="sig-name descname">crosstab</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values_agg</span></em>, <em class="sig-param"><span class="n">layer</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#xrspatial.zonal.crosstab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate cross-tabulated (categorical stats) areas
+between two datasets: a zone dataset, a value dataset (a value raster).
+Outputs a pandas DataFrame.</p>
+<p>Requires a DataArray with a single data dimension, here called the
+“values_agg”, indexed using 3D coordinates.</p>
+<p>DataArrays with 3D coordinates are expected to contain values
+distributed over different categories that are indexed by the
+additional coordinate.  Such an array would reduce to the
+2D-coordinate case if collapsed across the categories (e.g. if one
+did <code class="docutils literal notranslate"><span class="pre">aggc.sum(dim='cat')</span></code> for a categorical dimension <code class="docutils literal notranslate"><span class="pre">cat</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zones_agg</strong> (<em>xarray.DataArray</em><em>,</em>) – zones.values is a 2d array of integers.
+A zone is all the cells in a raster that have the same value,
+whether or not they are contiguous. The input zone layer defines
+the shape, values, and locations of the zones. An integer field
+in the zone input is specified to define the zones.</p></li>
+<li><p><strong>values_agg</strong> (<em>xarray.DataArray</em><em>,</em>) – values.values is a 3d array of integers or floats.
+The input value raster contains the input values used in calculating
+the categorical statistic for each zone.</p></li>
+<li><p><strong>layer</strong> (<em>string</em><em> (</em><em>optional</em><em>)</em>) – name of the layer inside the <cite>values_agg</cite> DataArray
+for getting the values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>crosstab_df</strong> – A pandas DataFrame where each column is a categorical value
+and each row is a zone with zone id.
+Each entry presents the percentage of the category over the zone.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="viewshed.html" class="btn btn-neutral float-right" title="Viewshed" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="zonal_statistics.html" class="btn btn-neutral float-left" title="Zonal Statistics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Brendan Collins
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
