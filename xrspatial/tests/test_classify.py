@@ -2,12 +2,8 @@ import numpy as np
 import xarray as xr
 
 from xrspatial import equal_interval
-import xrspatial
 from xrspatial import natural_breaks
-
-import os
-path = os.path.abspath(xrspatial.__file__)
-print("THE PATH", path)
+from xrspatial import quantile
 
 
 def test_quantile():
@@ -17,7 +13,7 @@ def test_quantile():
     agg['x'] = np.linspace(0, n, n)
     agg['y'] = np.linspace(0, m, m)
 
-    quantile_agg = equal_interval(agg, k=5)
+    quantile_agg = quantile(agg, k=5)
     assert quantile_agg is not None
 
     unique_elements, counts_elements = np.unique(quantile_agg.data,
